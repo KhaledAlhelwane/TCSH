@@ -10,5 +10,9 @@ namespace TCSH.Data
             : base(options)
         {
         }
+       public DbSet<Clothe> Clothe { get; set; }
+        public DbSet<TypeOfClothe> TypeOfClothe { get; set; }
+        public DbSet<AgeType> AgeType { get; set; }
+        public DbSet<AddtionalPicture> AddtionalPicture { get; set; }
     }
 }

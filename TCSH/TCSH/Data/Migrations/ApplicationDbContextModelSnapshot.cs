@@ -185,13 +185,10 @@ namespace TCSH.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AgeTypeId"), 1L, 1);
 
-                    b.Property<string>("MyProperty")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Type_Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("AgeTypeId");
 
@@ -284,26 +281,21 @@ namespace TCSH.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClotheId"), 1L, 1);
 
                     b.Property<string>("AdditonalInformation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("AgeTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("ApplicationUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CareInstruction")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Market")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MatrialComposition")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("MostPopular")
@@ -316,7 +308,6 @@ namespace TCSH.Data.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("Size")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -332,13 +323,11 @@ namespace TCSH.Data.Migrations
 
                     b.HasKey("ClotheId");
 
-                    b.HasIndex("AgeTypeId")
-                        .IsUnique();
+                    b.HasIndex("AgeTypeId");
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("TypeOfClotheId")
-                        .IsUnique();
+                    b.HasIndex("TypeOfClotheId");
 
                     b.ToTable("Clothe");
                 });
@@ -425,20 +414,18 @@ namespace TCSH.Data.Migrations
             modelBuilder.Entity("TCSH.Models.Clothe", b =>
                 {
                     b.HasOne("TCSH.Models.AgeType", "AgeType")
-                        .WithOne("Clothe")
-                        .HasForeignKey("TCSH.Models.Clothe", "AgeTypeId")
+                        .WithMany("Clothe")
+                        .HasForeignKey("AgeTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TCSH.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Clothe")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("TCSH.Models.TypeOfClothe", "TypeOfClothe")
-                        .WithOne("Clothe")
-                        .HasForeignKey("TCSH.Models.Clothe", "TypeOfClotheId")
+                        .WithMany("Clothe")
+                        .HasForeignKey("TypeOfClotheId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -451,8 +438,7 @@ namespace TCSH.Data.Migrations
 
             modelBuilder.Entity("TCSH.Models.AgeType", b =>
                 {
-                    b.Navigation("Clothe")
-                        .IsRequired();
+                    b.Navigation("Clothe");
                 });
 
             modelBuilder.Entity("TCSH.Models.ApplicationUser", b =>
@@ -467,8 +453,7 @@ namespace TCSH.Data.Migrations
 
             modelBuilder.Entity("TCSH.Models.TypeOfClothe", b =>
                 {
-                    b.Navigation("Clothe")
-                        .IsRequired();
+                    b.Navigation("Clothe");
                 });
 #pragma warning restore 612, 618
         }

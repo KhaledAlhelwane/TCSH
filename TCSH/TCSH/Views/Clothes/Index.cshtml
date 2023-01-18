@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Clothe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create"> <i class="bi bi-plus-circle"></i> Create New</a>
+</p>
+
+@{if (ViewBag.success !=null)
+{
+    <div class="alert alert-warning" role="alert">
+            <i class="bi bi-exclamation-diamond"></i> You dont have products!
+        </div>
+        
+    }else{
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                            <div class="col-sm-3" data-aos="fade-up">
+                        <div class="card shadow-lg float" style="width: 18rem;">
+                        @if (item.productImage != null)
+                        {
+                                <img alt="image profile" class="card-img-top" src="data:image*;base64,@(Convert.ToBase64String(item.productImage))" />
+                        }<div class="card-body ">
+                                <h5 class="card-title">@item.Title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a asp-action="Edit"  asp-route-id="@item.ClotheId" class="btn btn-primary">Edit</a>
+                                <a href="javascript:;" data-id="" class="btn btn-danger Deletme">Delete</a>
+                            </div>
+                        </div>
+                            </div>
+            }
+        </div>
+
+}}

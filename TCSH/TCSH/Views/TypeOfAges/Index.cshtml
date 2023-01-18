@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AgeType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@{if (ViewBag.success !=null)
+{
+    <div class="alert alert-warning" role="alert">
+            <i class="bi bi-exclamation-diamond"></i> You dont have products!
+        </div>
+        
+    }else{
+<table class="table table-striped">
+    <thead >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type_Title)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_Title)
+            </td>
+         
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.AgeTypeId }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.AgeTypeId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}}

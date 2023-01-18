@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fpR0qFganRJ/vnF3+Ui5vePOuarywP+Zxam2A0CVKz9PHJErLy4SFjqXMj1Ovaq8JvmUn2CQJnIronLAxpwEpA==",
+  "dgSpecHash": "wlG7fsAe+TUsdql66iVeZaEHyeScVxtjt+tlCdDmx4AwaxRSGU/Q6FW/UrPB19GnoCkr2erDPLyYQKmvbAXIzA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\khale\\Desktop\\Temp\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
+  "projectFilePath": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khale\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\khale\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

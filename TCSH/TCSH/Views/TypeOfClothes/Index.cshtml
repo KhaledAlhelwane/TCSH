@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TCSH.Models.TypeOfClothe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New</a>
+</p>
+@{if (ViewBag.success !=null)
+{
+    <div class="alert alert-warning" role="alert">
+            <i class="bi bi-exclamation-diamond"></i> You dont have products!
+        </div>
+        
+    }else{
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfClotheId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfClotheId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfTitle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.TypeOfClotheId }) |
+               |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}}

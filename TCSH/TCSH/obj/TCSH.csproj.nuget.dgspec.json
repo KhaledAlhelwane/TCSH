@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\khale\\Desktop\\Temp\\TCSH\\TCSH\\TCSH\\TCSH.csproj": {}
+    "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\TCSH.csproj": {}
   },
   "projects": {
-    "C:\\Users\\khale\\Desktop\\Temp\\TCSH\\TCSH\\TCSH\\TCSH.csproj": {
+    "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\TCSH.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\khale\\Desktop\\Temp\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
+        "projectUniqueName": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
         "projectName": "TCSH",
-        "projectPath": "C:\\Users\\khale\\Desktop\\Temp\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
+        "projectPath": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
         "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\khale\\Desktop\\Temp\\TCSH\\TCSH\\TCSH\\obj\\",
+        "outputPath": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",

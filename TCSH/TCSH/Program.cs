@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TCSH.Data;
 using TCSH.Models;
+using TCSH.Models.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,11 @@ builder.Services.AddIdentity<ApplicationUser,IdentityRole>(options => options.Si
     .AddDefaultUI()
     .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ICRUD<Clothe>, ClotheRepository>();
+builder.Services.AddScoped<ICRUD<TypeOfClothe>, TypeOfClotheRepository>();
+builder.Services.AddScoped<ICRUD<AgeType>, AgeTypeRepository>();
+builder.Services.AddScoped<ICRUD<AddtionalPicture>, AddtionalPictureRepository>();
+
 
 var app = builder.Build();
 
