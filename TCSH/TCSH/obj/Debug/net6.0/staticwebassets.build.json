@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YT2J+yfHTKUTQbH0IY0SobLpQ9rpVa+P3rnzSM54vyw=",
+  "Hash": "bNzDzGQb0X8waiywvfWV27Xt6cKX5NvoHA2moYw+p/Y=",
   "Source": "TCSH",
   "BasePath": "_content/TCSH",
   "Mode": "Default",
@@ -1154,6 +1154,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\bootbox.js\\bootbox.js",
+      "SourceId": "TCSH",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\",
+      "BasePath": "_content/TCSH",
+      "RelativePath": "lib/bootbox.js/bootbox.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootbox.js\\bootbox.js"
+    },
+    {
+      "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\bootbox.js\\bootbox.min.js",
+      "SourceId": "TCSH",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\",
+      "BasePath": "_content/TCSH",
+      "RelativePath": "lib/bootbox.js/bootbox.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootbox.js\\bootbox.min.js"
     },
     {
       "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
