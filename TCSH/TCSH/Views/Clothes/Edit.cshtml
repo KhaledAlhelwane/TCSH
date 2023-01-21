@@ -8,82 +8,128 @@
 
 <h4>ClotheViewModel</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-         
-                <input hidden asp-for="ClotheId" class="form-control" />
-               
+
+        <form asp-action="Edit" enctype="multipart/form-data" id="form2">
+    <input hidden asp-for="ClotheId" class="form-control" />
+    <input hidden asp-for="ApplicationUserId" class="form-control" />
+    <h5 class="text-warning border-bottom border-warning d-flex justify-content-center">Basic inforamtion</h5>
+    <div class="MyContainer" data-aos="fade-up">
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="form-group  justify-content-center">
+
+                    <img id="pp" alt="image profile" class="img-thumbnail" width="150" height="150" src="data:image*;base64,@(Convert.ToBase64String(Model.productImage))" />
+                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/*" asp-for="productImage"
+                           onchange="document.getElementById('pp').src=window.URL.createObjectURL(this.files[0])" />
+              
+            </div>
+            </div>
+
+
+            </div>
+                   <div class="row" >
+
+             <div class="col-md-4">
             <div class="form-group">
+              
                 <label asp-for="Market" class="control-label"></label>
                 <input asp-for="Market" class="form-control" />
                 <span asp-validation-for="Market" class="text-danger"></span>
-            </div>
+            </div></div>
+            <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Size" class="control-label"></label>
-                <input asp-for="Size" class="form-control" />
-                <span asp-validation-for="Size" class="text-danger"></span>
-            </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            <div class="form-group">
+        </div>
+             
+          @*  <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <input asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>*@
+              
+    </div>
+  
+            
+            
+            
+              <div class="row ">
+    
+    <div class="col-md-6">
+                 <label asp-for="AgeTypeList" class="control-label"></label>
+            <select asp-for="AgeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.AgeTypeList,"AgeTypeId","Type_Title"))"></select>
+                <span asp-validation-for="AgeId" class="text-danger"></span>
+        </div> <div class="col-md-6">
+
+                 <label asp-for="TypeOfClotheLiat" class="control-label"></label>
+            <select asp-for="TypeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.TypeOfClotheLiat,"TypeOfClotheId","TypeOfTitle"))"></select>
+                <span asp-validation-for="AgeId" class="text-danger"></span>
+       </div>
+
+
+        </div>
+    </div>
+ <br/>
+    <h5 class="text-warning border-bottom border-warning d-flex justify-content-center">Addtional inforamtion</h5>
+    <div class="row MyContainer" data-aos="fade-up">
+    
+        <div class="col-md-3">
+        <div class="form-group">
                 <label asp-for="SaleRate" class="control-label"></label>
                 <input asp-for="SaleRate" class="form-control" />
                 <span asp-validation-for="SaleRate" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="MostPopular" /> @Html.DisplayNameFor(model => model.MostPopular)
-                </label>
             </div>
+           <div class="col-md-3">
             <div class="form-group">
                 <label asp-for="CareInstruction" class="control-label"></label>
                 <input asp-for="CareInstruction" class="form-control" />
                 <span asp-validation-for="CareInstruction" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            </div>
+                <div class="col-md-3">
+        <div class="form-group">
                 <label asp-for="MatrialComposition" class="control-label"></label>
                 <input asp-for="MatrialComposition" class="form-control" />
                 <span asp-validation-for="MatrialComposition" class="text-danger"></span>
             </div>
+        </div>  <div class="col-md-3">
             <div class="form-group">
                 <label asp-for="AdditonalInformation" class="control-label"></label>
                 <input asp-for="AdditonalInformation" class="form-control" />
                 <span asp-validation-for="AdditonalInformation" class="text-danger"></span>
             </div>
-            <label asp-for="AgeTypeList" class="control-label"></label>
-            <select asp-for="AgeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.AgeTypeList,"AgeTypeId","Type_Title"))"></select>
-            <span asp-validation-for="AgeId" class="text-danger"></span>
-
-            <label asp-for="TypeOfClotheLiat" class="control-label"></label>
-            <select asp-for="TypeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.TypeOfClotheLiat,"TypeOfClotheId","TypeOfTitle"))"></select>
-            <span asp-validation-for="AgeId" class="text-danger"></span>
-            <div class="form-group">
+        </div>  <div class="col-md-3">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MostPopular" /> @Html.DisplayNameFor(model => model.MostPopular)
+                </label>
+            </div>
+        </div>
+            </div>
+       
               
-                        <img id="pp" alt="image profile" class="img-thumbnail" width="150" height="150" src="data:image*;base64,@(Convert.ToBase64String(Model.productImage))" />
-                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/*" asp-for="productImage"
-                       onchange="document.getElementById('pp').src=window.URL.createObjectURL(this.files[0])" />
-               
-            </div>
-                <input hidden asp-for="ApplicationUserId" class="form-control" />
-            <div class="form-group">
+           @* <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+            </div>*@
+               
 
+        </form>
+         <div class="d-grid gap-2 col-6 mx-auto">
+    <button type="submit" form="form2" value="Submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Edit</button>
+        </div>
+ 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-return-left"></i> Back to List</a>
 </div>
 
 @section Scripts {

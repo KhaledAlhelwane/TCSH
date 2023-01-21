@@ -4,10 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="alert alert-info " role="alert">
+    <p class="d-flex justify-content-center" style="font-size:larger">Type of Ages</p>
+</div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New</a>
 </p>
 @{if (ViewBag.success !=null)
 {
@@ -40,8 +42,8 @@
             </td>
          
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.AgeTypeId }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.AgeTypeId })
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-Id="@item.AgeTypeId">Edit</a>
+               
             </td>
         </tr>
 }

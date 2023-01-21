@@ -83,11 +83,11 @@ namespace TCSH.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    ModelState.AddModelError("TypeOfTitle", "There is aleady type with that name");
-                    return View(collection);
-                }
+                //if (!ModelState.IsValid)
+                //{
+                //    ModelState.AddModelError("TypeOfTitle", "There is aleady type with that name");
+                //    return View(collection);
+                //}
                 var list = typeOfClothRepo.List();
                 if (list.Count() != 0)
                     foreach (var x in list)

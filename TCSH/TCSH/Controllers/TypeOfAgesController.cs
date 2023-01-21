@@ -78,11 +78,11 @@ namespace TCSH.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    ViewBag.failed = "failed";
-                    return View(collection);
-                }
+                //if (!ModelState.IsValid)
+                //{
+                //    ViewBag.failed = "failed";
+                //    return View(collection);
+                //}
                 var list = ageTypeRepo.List();
                 foreach (var x in list)
                 {

@@ -9,6 +9,10 @@
     {
       "library": "bootbox.js@6.0.0",
       "destination": "wwwroot/lib/bootbox.js/"
+    },
+    {
+      "library": "aos@2.3.4",
+      "destination": "wwwroot/lib/aos/"
     }
   ]
 }

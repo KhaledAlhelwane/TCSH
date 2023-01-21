@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\aos\\aos.css",
+      "PackagePath": "staticwebassets\\lib\\aos\\aos.css"
+    },
+    {
+      "Id": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\aos\\aos.js",
+      "PackagePath": "staticwebassets\\lib\\aos\\aos.js"
+    },
+    {
       "Id": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\bootbox.js\\bootbox.js",
       "PackagePath": "staticwebassets\\lib\\bootbox.js\\bootbox.js"
     },

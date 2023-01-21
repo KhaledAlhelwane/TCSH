@@ -4,7 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="alert alert-info " role="alert">
+    <p class="d-flex justify-content-center" style="font-size:larger">Type of Clothes</p>
+</div>
 
 <p>
     <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New</a>
@@ -38,9 +40,8 @@
                 @Html.DisplayFor(modelItem => item.TypeOfTitle)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.TypeOfClotheId }) |
-               |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-Id="@item.TypeOfClotheId">Edit</a>
+               
             </td>
         </tr>
 }

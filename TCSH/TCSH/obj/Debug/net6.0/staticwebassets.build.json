@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bNzDzGQb0X8waiywvfWV27Xt6cKX5NvoHA2moYw+p/Y=",
+  "Hash": "rI9hIMdRMseH0PLvzc6cE+6ohxwgPcRXkgMeo4Aibhw=",
   "Source": "TCSH",
   "BasePath": "_content/TCSH",
   "Mode": "Default",
@@ -1154,6 +1154,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\aos\\aos.css",
+      "SourceId": "TCSH",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\",
+      "BasePath": "_content/TCSH",
+      "RelativePath": "lib/aos/aos.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\aos\\aos.css"
+    },
+    {
+      "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\aos\\aos.js",
+      "SourceId": "TCSH",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\",
+      "BasePath": "_content/TCSH",
+      "RelativePath": "lib/aos/aos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\aos\\aos.js"
     },
     {
       "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\lib\\bootbox.js\\bootbox.js",

@@ -116,7 +116,10 @@ namespace TCSH.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    //here when you sing in you can get you will redirected to the (my products page)
+                    string MyUrl= Url.Content("~/Clothes/Index");
+                    //return LocalRedirect(returnUrl);
+                    return LocalRedirect(MyUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {
