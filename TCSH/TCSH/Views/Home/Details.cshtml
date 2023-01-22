@@ -1,0 +1,70 @@
+﻿@model TCSH.ViewModel.ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ShopeLayout";
+}
+
+<br/>
+   @if (ViewBag.faild != null)
+                                {
+    <br />
+
+    <br />
+    <br />
+
+    <br/>
+                                   <div class="alert alert-danger" role="alert">
+  There is no prodcut with this Id
+</div>
+                                }else{
+<section class="section" id="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="left-images">
+                     <img  alt=""  src="data:image*;base64,@(Convert.ToBase64String(Model.productImage))" />
+                 
+                  @*  <img src="assets/images/single-product-01.jpg" alt="">
+                    <img src="assets/images/single-product-02.jpg" alt="">*@
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="right-content">
+                    <h4>@Model.Title</h4>
+                    <span class="price">$@Model.Price</span>
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <div class="quote">
+                        <i class="fa fa-quote-left"></i><p>Brand: @Model.Market<br /> Mdodel size: @Model.AgeType .</p>
+                    </div>
+                    <span><b> Matrial Composition :</b> <br />@Model.MatrialComposition <br /><b> Care Instructions :</b><br /> @Model.CareInstruction  <br /><b> Addtional information: </b> <br /> @Model.AdditonalInformation </span>
+                 @*  
+                    <div class="quantity-content">
+                        <div class="left-content">
+                            <h6>No. of Orders</h6>
+                        </div>
+                        <div class="right-content">
+                            <div class="quantity buttons_added">
+                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <h4>Total: $210.00</h4>
+                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
+
+
+

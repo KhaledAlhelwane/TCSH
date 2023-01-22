@@ -20,12 +20,18 @@
             <div class="container-fluid">
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <a class="navbar-brand" asp-action="Index" asp-controller="Home" style="font-family: 'Brush Script MT', cursive;">TSH</a>
+                 <!--   <a class="navbar-brand" asp-action="Index" asp-controller="Home" style="font-family: 'Brush Script MT', cursive;">TSH</a>
+                -->
+                    <a class="logo" asp-action="Index" asp-controller="Home" style="font-family: 'Brush Script MT', cursive;">
+                            <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
+							
+                        </a>
                 }
                 else
                 {
-                        <a class="navbar-brand" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;">TSH</a>
-                
+                        <a class="navbar-brand" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;">
+                   <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
+						</a>
                         }
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -36,13 +42,13 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Clothes" asp-action="Index"><i class="bi bi-file-earmark-text"></i> My Products</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Clothes" asp-action="Index" style="font-size:large"><i class="bi bi-file-earmark-text"></i> My Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TypeOfClothes" asp-action="Index"><i class="bi bi-gear"></i> Type of Products</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TypeOfClothes" asp-action="Index" style="font-size:large"><i class="bi bi-gear"></i> Type of Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TypeOfAges" asp-action="Index"><i class="bi bi-gear"></i> Type of Ages</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TypeOfAges" asp-action="Index" style="font-size:large"><i class="bi bi-gear"></i> Type of Ages</a>
                             </li>
                         }
                       

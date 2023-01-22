@@ -2,24 +2,25 @@
 
 @{
     ViewData["Title"] = "Index";
+   
 }
 
 
-<div class="alert alert-info " role="alert">
+<div class="alert alert-dark" role="alert">
     <p class="d-flex justify-content-center" style="font-size:larger">My Products</p>
 </div>
 <p>
-    <a class="btn btn-primary" asp-action="Create"> <i class="bi bi-plus-circle"></i> Create New</a>
+    <a class="btn btn-dark" asp-action="Create"> <i class="bi bi-plus-circle"></i> Create New</a>
 </p>
 
 @{if (ViewBag.success !=null)
 {
     <div class="alert alert-warning" role="alert">
-            <i class="bi bi-exclamation-diamond"></i> You dont have products!
+            <i class="bi bi-exclamation-diamond"></i> There are no products yet!
         </div>
         
     }else{
-         <div id="_alert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+         <div id="_alert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
 	Item deleted successfully.
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
@@ -36,7 +37,7 @@
                         }<div class="card-body ">
                                 <h5 class="card-title">@item.Title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a asp-action="Edit"  asp-route-id="@item.ClotheId" class="btn btn-primary">Edit</a>
+                            <a asp-action="Edit" asp-route-id="@item.ClotheId" class="btn btn-dark">Edit</a>
                             <a href="javascript:;" data-id="@item.ClotheId" class="btn btn-danger Deletme">Delete</a>
                             </div>
                         </div>

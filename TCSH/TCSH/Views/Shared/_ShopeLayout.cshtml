@@ -1,0 +1,156 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+	<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/css/templatemo-hexashop.css" rel="stylesheet" />
+    <link href="~/assets/css/owl-carousel.css" rel="stylesheet" />
+	<link href="~/assets/css/lightbox.css" rel="stylesheet" />
+    
+	
+
+</head>
+<body>
+    <div id="preloader" style="visibility: hidden; display: none; opacity: 0;">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header-area header-sticky background-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                          @if (SignInManager.IsSignedIn(User))
+                {
+                            <a class="logo" asp-controller="Clothes" asp-action="Index" style="font-family: 'Brush Script MT', cursive;">
+                                <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
+
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="logo" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;">
+                                <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
+
+                            </a>
+                            
+                        }  
+                        <a class="navbar-brand" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;"></a>
+                
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a asp-action="Index" class="active">Home</a></li>
+                              <li class="scroll-to-section"><a asp-action="AllProducts" class="">Kid's</a></li>
+                          
+                        </ul>
+                        <a class="menu-trigger">
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="~/image/logo.jpg" class="rounded-circle" width="70" alt="hexashop ecommerce templatemo" />
+                          
+                        </div>
+                        <ul>
+                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
+                            <li><a href="#">hexashop@company.com</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="#">Men’s Shopping</a></li>
+                        <li><a href="#">Women’s Shopping</a></li>
+                        <li><a href="#">Kid's Shopping</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Homepage</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+          
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © @DateTime.Now.Year HexaShop Co., Ltd. All Rights Reserved. 
+                        
+                    <!--    <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+
+                        <br>Distributed By: <a href="https://themewagon.com" target="_blank" title="free &amp; premium responsive templates">ThemeWagon</a></p>
+                      -->  <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
+
+    </script>
+    <script src="~/assets/js/jquery-2.1.0.min.js"></script>
+	<script src="~/assets/js/popper.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/owl-carousel.js"></script>
+     <script src="~/assets/js/accordions.js"></script>
+		<script src="~/assets/js/datepicker.js"></script>
+<script src="~/assets/js/scrollreveal.min.js"></script>
+    <script src="~/assets/js/waypoints.min.js"></script>
+<script src="~/assets/js/jquery.counterup.min.js"></script>
+	<script src="~/assets/js/imgfix.min.js"></script>
+<script src="~/assets/js/slick.js"></script>
+    <script src="~/assets/js/lightbox.js"></script>
+    <script src="~/assets/js/isotope.js"></script>
+     <script src="~/assets/js/custom.js"></script>
+	<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
+    <div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>
+	</body>
+</html>

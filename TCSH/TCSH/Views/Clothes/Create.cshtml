@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Create";
+   
+
 }
 
 <h3 class="d-flex justify-content-center">Create New product</h3>
@@ -21,17 +23,20 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="form-group  justify-content-center">
+                 <p>Product Image</p>
                     <img id="pp" alt="profile" class="justify-content-center img-thumbnail d-none TheIMage" width="150" height="150" />
                 <br/>
              
                 <div class="custom-file mt-2">
-                    <input type="file" onclick="ShowImage();" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  accept="image/*" asp-for="productImage"
+                   
+                    <input type="file" onclick="ShowImage();" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  accept="image/*" asp-for="productImage2"
                            onchange="document.getElementById('pp').src=window.URL.createObjectURL(this.files[0])" />
              </div>@*aria-label="Upload"*@
                     <input hidden asp-for="ApplicationUserId" class="form-control" />
                     <span asp-validation-for="ApplicationUserId" class="text-danger"></span>
                     <span asp-validation-for="ClotheId" class="text-danger"></span>
                      <span asp-validation-for="MostPopular" class="text-danger"></span>
+                    <span asp-validation-for="productImage2" class="text-danger"></span>
             </div>
             </div>
 
@@ -73,7 +78,7 @@
 
                  <label asp-for="TypeOfClotheLiat" class="control-label"></label>
                 <select asp-for="TypeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.TypeOfClotheLiat,"TypeOfClotheId","TypeOfTitle"))"><option>Please Select a choice</option></select>
-                <span asp-validation-for="AgeId" class="text-danger"></span>
+                <span asp-validation-for="TypeId" class="text-danger"></span>
        </div>
 
 
@@ -125,7 +130,7 @@
         </form>
         <br/>
         <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" form="form1" value="Submit" class="btn btn-primary"><i class="bi bi-cloud-upload"></i> Submit</button>
+    <button type="submit" form="form1" value="Submit" class="btn btn-dark"><i class="bi bi-cloud-upload"></i> Submit</button>
         </div>
 
 <br />

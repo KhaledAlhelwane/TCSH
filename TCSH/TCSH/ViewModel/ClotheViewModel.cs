@@ -23,7 +23,8 @@ namespace TCSH.ViewModel
         public string ?AdditonalInformation { get; set; }
         
         public byte[]? productImage { get; set; }
-
+        [Required]
+        public IFormFile? productImage2 { get; set; }
         public IList<AgeType>? AgeTypeList { get; set; }
 
         public IList<TypeOfClothe>? TypeOfClotheLiat { get; set; }

@@ -103,6 +103,7 @@ namespace TCSH.Controllers
                     ViewBag.faild = "faild";
                     collection.AgeTypeList = AgeList();
                     collection.TypeOfClotheLiat = TypeClotheList();
+                  
                     return View(collection);
                 }
                 var user = userManager.GetUserAsync(User).Result;
@@ -136,6 +137,16 @@ namespace TCSH.Controllers
                 }
                 else
                 {
+                    if (collection.productImage2 != null)
+                    {
+                        var file = collection.productImage2;
+                        //check file size and extension
+                        using (var datestream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(datestream);
+                            ClothProduct.productImage = datestream.ToArray();
+                        }
+                    }
                     ViewBag.faild = "faild";
                     return View(collection);
                 }
@@ -198,7 +209,7 @@ namespace TCSH.Controllers
                 UpdateOpject.MatrialComposition = collection.MatrialComposition;
                 UpdateOpject.MostPopular = collection.MostPopular;
                 UpdateOpject.Price = collection.Price;
-               
+                UpdateOpject.AdditonalInformation = collection.AdditonalInformation;
                 UpdateOpject.Title = collection.Title;
                 UpdateOpject.SaleRate = collection.SaleRate;
                 UpdateOpject.TypeOfClotheId = collection.TypeId;
