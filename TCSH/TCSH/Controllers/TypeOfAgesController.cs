@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using TCSH.Models;
 using TCSH.Models.Repository;
 
 namespace TCSH.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TypeOfAgesController : Controller
     {
         private readonly ICRUD<AgeType> ageTypeRepo;

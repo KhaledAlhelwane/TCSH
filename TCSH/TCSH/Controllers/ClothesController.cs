@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using TCSH.Models;
 using TCSH.Models.Repository;
 using TCSH.ViewModel;
 
 namespace TCSH.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ClothesController : Controller
     {
         private readonly ICRUD<Clothe> clotheRepo;
@@ -165,7 +168,7 @@ namespace TCSH.Controllers
             var collection = clotheRepo.find(id);
             var listTypeOfAge = ageTypeRepo.List();
             var listTypeOfClothe = typeOfClothRepo.List();
-            var NewCollection = new ClotheViewModel
+            var NewCollection = new EditClotheViewModel
             {
                 AdditonalInformation = collection.AdditonalInformation,
                 productImage = collection.productImage,
@@ -189,7 +192,7 @@ namespace TCSH.Controllers
         // POST: ClothesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, ClotheViewModel collection)
+        public async Task<ActionResult> Edit(int id, EditClotheViewModel collection)
         {
             try
             {

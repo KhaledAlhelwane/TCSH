@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QTwcHJLcZLYi4Tw6egzAl9lkkTx3BygVOFwZGELe+6Q=",
+  "Hash": "ovVPTvLHNfWsc90L6LeK9PD6rgYEsj/vEnUG4vps918=",
   "Source": "TCSH",
   "BasePath": "_content/TCSH",
   "Mode": "Default",
@@ -2191,6 +2191,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\image\\logo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\image\\MyIcone.png",
+      "SourceId": "TCSH",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\",
+      "BasePath": "_content/TCSH",
+      "RelativePath": "image/MyIcone.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\MyIcone.png"
     },
     {
       "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\image\\ProfilePicture.png",

@@ -5,12 +5,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title style="font-family: Georgia, serif;">TSH</title>
 	<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
     <link href="~/assets/css/templatemo-hexashop.css" rel="stylesheet" />
     <link href="~/assets/css/owl-carousel.css" rel="stylesheet" />
 	<link href="~/assets/css/lightbox.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/image/logo.jpg" class="rounded-circle" sizes="32x32">
+
     
 	
 
@@ -29,21 +31,10 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                          @if (SignInManager.IsSignedIn(User))
-                {
-                            <a class="logo" asp-controller="Clothes" asp-action="Index" style="font-family: 'Brush Script MT', cursive;">
-                                <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
+                        <a class="logo" asp-controller="Home" asp-action="Index" style="font-family: 'Brush Script MT', cursive;">
+                            <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
 
-                            </a>
-                        }
-                        else
-                        {
-                            <a class="logo" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;">
-                                <img src="~/image/logo.jpg" class="rounded-circle" width="120" alt="hexashop ecommerce templatemo" />
-
-                            </a>
-                            
-                        }  
+                        </a>
                         <a class="navbar-brand" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;"></a>
                 
                         <!-- ***** Logo End ***** -->
@@ -73,8 +64,21 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="~/image/logo.jpg" class="rounded-circle" width="70" alt="hexashop ecommerce templatemo" />
-                          
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a class="logo" asp-controller="Clothes" asp-action="Index" style="font-family: 'Brush Script MT', cursive;">
+                                    <img src="~/image/logo.jpg" class="rounded-circle" width="70" alt="hexashop ecommerce templatemo" />
+
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="logo" asp-area="Identity" asp-page="/Account/Login" style="font-family: 'Brush Script MT', cursive;">
+                                    <img src="~/image/logo.jpg" class="rounded-circle" width="70" alt="hexashop ecommerce templatemo" />
+
+                                </a>
+
+                            }
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>

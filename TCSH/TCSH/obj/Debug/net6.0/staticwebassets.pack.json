@@ -265,6 +265,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\image\\MyIcone.png",
+      "PackagePath": "staticwebassets\\image\\MyIcone.png"
+    },
+    {
       "Id": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\image\\ProfilePicture.png",
       "PackagePath": "staticwebassets\\image\\ProfilePicture.png"
     },
