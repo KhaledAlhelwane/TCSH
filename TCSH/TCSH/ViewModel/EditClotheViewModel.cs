@@ -21,8 +21,8 @@ namespace TCSH.ViewModel
         public string ?CareInstruction { get; set; }
         public string ?MatrialComposition { get; set; }
         public string ?AdditonalInformation { get; set; }
-        
-        public byte[]? productImage { get; set; }
+        public string? productImageUrl { get; set; }
+        public IFormFile? productImage { get; set; }
         public IList<AgeType>? AgeTypeList { get; set; }
 
         public IList<TypeOfClothe>? TypeOfClotheLiat { get; set; }

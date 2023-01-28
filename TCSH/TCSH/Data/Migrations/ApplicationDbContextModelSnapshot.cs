@@ -336,6 +336,12 @@ namespace TCSH.Data.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
+                    b.Property<string>("ProductImageURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductImageURLRsized")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("SaleRate")
                         .HasColumnType("real");
 
@@ -348,10 +354,6 @@ namespace TCSH.Data.Migrations
 
                     b.Property<int>("TypeOfClotheId")
                         .HasColumnType("int");
-
-                    b.Property<byte[]>("productImage")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("ClotheId");
 

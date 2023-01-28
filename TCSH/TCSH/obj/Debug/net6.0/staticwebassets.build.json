@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ovVPTvLHNfWsc90L6LeK9PD6rgYEsj/vEnUG4vps918=",
+  "Hash": "4RdBtdgJuAHwgDg+Q//tYIpYoVKQC513myFznFh5HVQ=",
   "Source": "TCSH",
   "BasePath": "_content/TCSH",
   "Mode": "Default",
@@ -36616,6 +36616,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\ProductsImages\\10pexels-natural-photosu-950236.jpg",
+      "SourceId": "TCSH",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\wwwroot\\",
+      "BasePath": "_content/TCSH",
+      "RelativePath": "ProductsImages/10pexels-natural-photosu-950236.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductsImages\\10pexels-natural-photosu-950236.jpg"
     }
   ]
 }

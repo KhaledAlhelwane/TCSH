@@ -29,14 +29,14 @@
              
                 <div class="custom-file mt-2">
                    
-                    <input type="file" onclick="ShowImage();" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  accept="image/*" asp-for="productImage2"
+                    <input type="file" onclick="ShowImage();" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"  accept="image/*" asp-for="productImage"
                            onchange="document.getElementById('pp').src=window.URL.createObjectURL(this.files[0])" />
              </div>@*aria-label="Upload"*@
                     <input hidden asp-for="ApplicationUserId" class="form-control" />
                     <span asp-validation-for="ApplicationUserId" class="text-danger"></span>
                     <span asp-validation-for="ClotheId" class="text-danger"></span>
                      <span asp-validation-for="MostPopular" class="text-danger"></span>
-                    <span asp-validation-for="productImage2" class="text-danger"></span>
+                    <span asp-validation-for="productImage" class="text-danger"></span>
             </div>
             </div>
 

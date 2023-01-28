@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wlG7fsAe+TUsdql66iVeZaEHyeScVxtjt+tlCdDmx4AwaxRSGU/Q6FW/UrPB19GnoCkr2erDPLyYQKmvbAXIzA==",
+  "dgSpecHash": "tAWa/dgurSspdtVcLIIgErVOolsuZCX1JPINjHDT1uNI29b9FwufOUjy68wAaTuKhoqgZdiNLq4wm7IfvNrASg==",
   "success": true,
   "projectFilePath": "C:\\Users\\khale\\Desktop\\Asp core projects\\TCSH\\TCSH\\TCSH\\TCSH\\TCSH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khale\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\khale\\.nuget\\packages\\magick.net-q16-anycpu\\12.2.2\\magick.net-q16-anycpu.12.2.2.nupkg.sha512",
+    "C:\\Users\\khale\\.nuget\\packages\\magick.net.core\\12.2.2\\magick.net.core.12.2.2.nupkg.sha512",
     "C:\\Users\\khale\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\khale\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\khale\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

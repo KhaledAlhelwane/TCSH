@@ -14,8 +14,9 @@ namespace TCSH.Models
         public string ?CareInstruction { get; set; }
         public string ?MatrialComposition { get; set; }
         public string ?AdditonalInformation { get; set; }
-        public byte[] productImage { get; set; }
-      
+        public string ?ProductImageURL { get; set; }
+        public string? ProductImageURLRsized { get; set; }
+
         //public  ICollection<AddtionalPicture> addtionalPicture { get; set; }
         //[Required]
         public ApplicationUser ApplicationUser { get; set; }

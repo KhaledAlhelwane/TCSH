@@ -17,11 +17,12 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="form-group  justify-content-center">
+                <img type="hidden" asp-for="Image"/>
+                    <img id="pp" alt="image profile" class="img-thumbnail" width="150" height="150" src="~/ProductsImages/@Model.productImageUrl" />
 
-                    <img id="pp" alt="image profile" class="img-thumbnail" width="150" height="150" src="data:image*;base64,@(Convert.ToBase64String(Model.productImage))" />
                     <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/*" asp-for="productImage"
                            onchange="document.getElementById('pp').src=window.URL.createObjectURL(this.files[0])" />
-              
+                    <input hidden asp-for="productImageUrl" />
             </div>
             </div>
 

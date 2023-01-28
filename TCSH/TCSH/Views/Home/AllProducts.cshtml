@@ -40,7 +40,8 @@
                                          <li><a asp-action="Details" asp-route-id="@item.ClotheId"><i class="fa fa-eye"></i></a></li>
                               </ul>
                         </div>
-                        <img alt="" src="data:image*;base64,@(Convert.ToBase64String(item.productImage))" />
+                          <img id="myImg2" src="~/ProductsImages/@item.ProductImageURLRsized" />
+                    
                             </div>
                     <div class="down-content">
                         <h4>@item.Title</h4>
@@ -80,5 +81,5 @@
                 </div>*@
             </div>
         </div>
-    </div>
+    
 </section>

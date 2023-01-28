@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using System.Data;
 using TCSH.Models;
 using TCSH.Models.Repository;
 using TCSH.ViewModel;
+using ImageMagick;
 
 namespace TCSH.Controllers
 {
@@ -16,15 +18,19 @@ namespace TCSH.Controllers
         private readonly ICRUD<AgeType> ageTypeRepo;
         private readonly ICRUD<TypeOfClothe> typeOfClothRepo;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IWebHostEnvironment hosting_;
 
         // GET: ClothesController
         public ClothesController(ICRUD<Clothe> ClotheRepo, ICRUD<AgeType> AgeTypeRepo,
-            ICRUD<TypeOfClothe> TypeOfClothRepo, UserManager<ApplicationUser> _UserManager)
+            ICRUD<TypeOfClothe> TypeOfClothRepo, UserManager<ApplicationUser> _UserManager,
+              IWebHostEnvironment hosting_)
         {
             clotheRepo = ClotheRepo;
             ageTypeRepo = AgeTypeRepo;
             typeOfClothRepo = TypeOfClothRepo;
             userManager = _UserManager;
+            this.hosting_ = hosting_;
+            MagickNET.Initialize();
         }
         public ActionResult Index()
         {
@@ -37,11 +43,7 @@ namespace TCSH.Controllers
             return View(listOfClothes);
         }
 
-        // GET: ClothesController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+      
 
         // GET: ClothesController/Create
         public async Task<IActionResult> Create()
@@ -109,8 +111,26 @@ namespace TCSH.Controllers
                   
                     return View(collection);
                 }
-                var user = userManager.GetUserAsync(User).Result;
+                string filenameIMa = string.Empty;
+                if (collection.productImage != null)
+                {
+                    var listindex = clotheRepo.List();
+                    if (listindex.Count() == 0)
+                    {
+                        filenameIMa = "1".ToString() + collection.productImage.FileName;
+                    }
+                    else
+                    {
+                        filenameIMa = (listindex.Last().ClotheId + 1).ToString() + collection.productImage.FileName;
+                    }
 
+                    string uploads = Path.Combine(hosting_.WebRootPath, "ProductsImages");
+                    string fullpath = Path.Combine(uploads, filenameIMa);
+                    collection.productImage.CopyTo(new FileStream(fullpath, FileMode.Create));
+                    ImageResizing(uploads,filenameIMa);
+
+                }
+                var user =userManager.GetUserAsync(User).Result;
                 var ClothProduct = new Clothe
                 {
                     Title = collection.Title,
@@ -120,39 +140,13 @@ namespace TCSH.Controllers
                     MostPopular = collection.MostPopular,
                     Price = collection.Price,
                     SaleRate = collection.SaleRate,
-                  
-                    TypeOfClotheId = collection.TypeId,
+                      TypeOfClotheId = collection.TypeId,
                     AgeTypeId = collection.AgeId,
                     ApplicationUser = user,
-                    AdditonalInformation = collection.AdditonalInformation
-
+                    AdditonalInformation = collection.AdditonalInformation,
+                    ProductImageURL=filenameIMa,
+                    ProductImageURLRsized= "Resized"+filenameIMa
                 };
-                if (Request.Form.Files.Count != 0)
-                {
-                    var file = Request.Form.Files.FirstOrDefault();
-                    //check file size and extension
-                    using (var datestream = new MemoryStream())
-                    {
-                        await file.CopyToAsync(datestream);
-                        ClothProduct.productImage = datestream.ToArray();
-                    }
-
-                }
-                else
-                {
-                    if (collection.productImage2 != null)
-                    {
-                        var file = collection.productImage2;
-                        //check file size and extension
-                        using (var datestream = new MemoryStream())
-                        {
-                            await file.CopyToAsync(datestream);
-                            ClothProduct.productImage = datestream.ToArray();
-                        }
-                    }
-                    ViewBag.faild = "faild";
-                    return View(collection);
-                }
                 clotheRepo.Add(ClothProduct);
                 return RedirectToAction(nameof(Index));
             }
@@ -171,7 +165,7 @@ namespace TCSH.Controllers
             var NewCollection = new EditClotheViewModel
             {
                 AdditonalInformation = collection.AdditonalInformation,
-                productImage = collection.productImage,
+                productImageUrl = collection.ProductImageURL,
                 AgeId = collection.AgeTypeId,
                 ApplicationUserId = collection.ApplicationUser.Id,
                 CareInstruction = collection.CareInstruction,
@@ -192,7 +186,7 @@ namespace TCSH.Controllers
         // POST: ClothesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, EditClotheViewModel collection)
+        public ActionResult Edit(int id, EditClotheViewModel collection)
         {
             try
             {
@@ -203,7 +197,7 @@ namespace TCSH.Controllers
                     ViewBag.faild = "faild";
                     collection.AgeTypeList = AgeList();
                     collection.TypeOfClotheLiat = TypeClotheList();
-                    collection.productImage = Mycollection.productImage;
+                    
                     return View(collection);
                 }
                 var UpdateOpject = clotheRepo.find(collection.ClotheId);
@@ -217,19 +211,33 @@ namespace TCSH.Controllers
                 UpdateOpject.SaleRate = collection.SaleRate;
                 UpdateOpject.TypeOfClotheId = collection.TypeId;
                 UpdateOpject.AgeTypeId = collection.AgeId;
-                if (Request.Form.Files.Count != 0)
+                 string filenameIMa;
+                if (collection.productImage != null)
                 {
-                    var file = Request.Form.Files.FirstOrDefault();
-                    //check file size and extension
-                    using (var datestream = new MemoryStream())
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+
+                    string uploads = Path.Combine(hosting_.WebRootPath, "ProductsImages");
+                    filenameIMa = collection.ClotheId.ToString() + collection.productImage.FileName;
+                    string fullpath = Path.Combine(uploads, filenameIMa);
+                    //delete Old File
+                    string oldFileName = collection.productImageUrl;
+                    string fullOldPath = Path.Combine(uploads, oldFileName);
+                    if (fullpath != fullOldPath)
                     {
-                        await file.CopyToAsync(datestream);
-                        UpdateOpject.productImage = datestream.ToArray();
+                        System.IO.File.Delete(fullOldPath);
+                        System.IO.File.Delete(uploads+ "\\Resized"+collection.productImage);
+                        //save new image
+                        UpdateOpject.ProductImageURL = filenameIMa;
+                        collection.productImage.CopyTo(new FileStream(fullpath, FileMode.Create));
+                        ImageResizing(uploads, filenameIMa);
+                        UpdateOpject.ProductImageURLRsized = "Resized" + filenameIMa;
+
                     }
+                    clotheRepo.Update(UpdateOpject);
 
+                   
                 }
-                clotheRepo.Update(UpdateOpject);
-
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -246,6 +254,30 @@ namespace TCSH.Controllers
         {
             return typeOfClothRepo.List();
     
+        }
+
+        private void ImageResizing(string path,string filename)
+        {var ImageUrl = Path.Combine(path, filename);
+            using (var image = new MagickImage(ImageUrl))
+            {
+                try
+                {
+                    var size = new MagickGeometry(1000, 1000);
+                    //// This will resize the image to a fixed size without maintaining the aspect ratio.
+                    // Normally an image will be resized to fit inside the specified size.
+                    size.IgnoreAspectRatio = false;
+
+
+                    image.Resize(size);
+                    image.Quality = 75;
+                    //   Save the result
+                    image.Write(path+"\\Resized"+filename);
+                }catch(Exception e)
+                {
+                   
+                }
+                }
+
         }
 }
 }

@@ -30,7 +30,17 @@ namespace TCSH.Controllers
                 ViewBag.faild = "faild";
                 return View();
             }
-            return View(listOfClothes.OrderByDescending(x=>x.ClotheId));
+          var Orderdlist=  listOfClothes.OrderByDescending(x => x.ClotheId);
+            var IndexList=new List<Clothe>();
+            int counter = 0;
+            foreach(var x in Orderdlist)
+            {
+                IndexList.Add(x);
+                counter += 1;
+                if (counter == 5)
+                    break;
+            }
+            return View(IndexList);
         }
 
 
@@ -49,7 +59,7 @@ namespace TCSH.Controllers
                 AdditonalInformation = Product.AdditonalInformation,
                 Market = Product.Market,
                 Price = Product.Price,
-                productImage = Product.productImage,
+                productImageUrl=Product.ProductImageURL,
                 Title = Product.Title,
                 CareInstruction = Product.CareInstruction,
                 SaleRate = Product.SaleRate,
