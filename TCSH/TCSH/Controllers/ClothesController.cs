@@ -32,18 +32,46 @@ namespace TCSH.Controllers
             this.hosting_ = hosting_;
             MagickNET.Initialize();
         }
+
+
         public ActionResult Index()
         {
-            var listOfClothes = clotheRepo.List();
-            if (listOfClothes.Count() == 0)
+            //var listOfClothes = clotheRepo.List();
+            //if (listOfClothes.Count() == 0)
+            //{
+            //    
+            //}
+            //return View(listOfClothes);
+            if (GetClothes(1).Clothes.Count()==0)
             {
                 ViewBag.success = "false";
-                return View();
+                   return View();
             }
-            return View(listOfClothes);
+            return View(GetClothes(1));
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(int CurrentPageIndex)
+        {
+            return View(GetClothes(CurrentPageIndex));
         }
 
-      
+
+        private PagingClotheViewModel GetClothes(int currentPage)
+        {
+            int maxRows = 10;
+            PagingClotheViewModel ClothesProducts = new PagingClotheViewModel();
+
+            ClothesProducts.Clothes = clotheRepo.List().OrderByDescending(x => x.ClotheId).Skip((currentPage - 1) * maxRows).Take(maxRows).ToList();
+           
+            double pageCount = (double)((decimal)clotheRepo.List().Count() / Convert.ToDecimal(maxRows));
+            ClothesProducts.PageCount = (int)Math.Ceiling(pageCount);
+
+            ClothesProducts.CurrentPageIndex = currentPage;
+
+            return ClothesProducts;
+        }
+
 
         // GET: ClothesController/Create
         public async Task<IActionResult> Create()
@@ -125,9 +153,12 @@ namespace TCSH.Controllers
                     }
 
                     string uploads = Path.Combine(hosting_.WebRootPath, "ProductsImages");
-                    string fullpath = Path.Combine(uploads, filenameIMa);
+                    string nospacename = filenameIMa.Trim();
+                    string fullpath = Path.Combine(uploads, nospacename);
+                   
                     collection.productImage.CopyTo(new FileStream(fullpath, FileMode.Create));
-                    ImageResizing(uploads,filenameIMa);
+              
+                    ImageResizing(uploads, nospacename);
 
                 }
                 var user =userManager.GetUserAsync(User).Result;
@@ -150,7 +181,7 @@ namespace TCSH.Controllers
                 clotheRepo.Add(ClothProduct);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception e)
             {
                 return View();
             }

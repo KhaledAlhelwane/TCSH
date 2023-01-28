@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TCSH.Models.Clothe>
+﻿@model PagingClotheViewModel
 
 @{
     ViewData["Title"] = "AllProducts";
@@ -30,8 +30,10 @@
                 <div class="alert alert-danger justify-content-center align-self-center col-12" role="alert">
   There is no prodcut yet!!!
 </div>
-                                }else{
-            foreach(var item in Model){
+                                }
+                                
+          else{
+            foreach(var item in Model.Clothes){
             <div class="col-lg-4">
                 <div class="item">
                     <div class="thumb">
@@ -57,29 +59,39 @@
                 </div>
             </div>
                 }
+                <div class="col-12">
+                <form id="MyForm" asp-action="AllProducts" method="post">
+                    <table cellpadding="0" cellspacing="0" class="d-flex justify-content-center mt-2">
+                        <tr>
+                            @for (int i = 1; i <= Model.PageCount; i++)
+                            {
+                                <td>
+                                    @if (i != Model.CurrentPageIndex)
+                                    {
+                                        <a href="javascript:PagerClick(@i);" class="btn btn-primary">@i</a>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-secondary">@i</span>
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                    <input type="hidden" id="hfCurrentPageIndex" asp-for="CurrentPageIndex" />
+                </form>
+                </div>
             }
             
 
-             @*   <div class="pagination">
-                    <ul>
-                        <li>
-                            <a href="#">1</a>
-                        </li>
-                        <li class="active">
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">&gt;</a>
-                        </li>
-                    </ul>
-                </div>*@
+          
             </div>
         </div>
     
 </section>
+<script type="text/javascript">
+    function PagerClick(index) {
+        document.getElementById("hfCurrentPageIndex").value = index;
+        document.getElementById("MyForm").submit();
+    }
+</script>

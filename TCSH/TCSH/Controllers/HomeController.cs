@@ -75,14 +75,34 @@ namespace TCSH.Controllers
 
         public IActionResult AllProducts()
         {
-            var lista = clothRepo.List();
-            if (lista.Count() == 0) {
+           
+            if (GetClothes(1).Clothes.Count()==0) {
                 ViewBag.faild = "faild";
                 return View();
             }
-            return View(lista);
+            return View(GetClothes(1));
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AllProducts(int CurrentPageIndex)
+        {
+           
+            return View(GetClothes(CurrentPageIndex));
+        }
 
+        private PagingClotheViewModel GetClothes(int currentPage)
+        {
+            int maxRows = 10;
+            PagingClotheViewModel ClothesProducts = new PagingClotheViewModel();
 
+            ClothesProducts.Clothes = clothRepo.List().OrderByDescending(x => x.ClotheId).Skip((currentPage - 1) * maxRows).Take(maxRows).ToList();
+
+            double pageCount = (double)((decimal)clothRepo.List().Count() / Convert.ToDecimal(maxRows));
+            ClothesProducts.PageCount = (int)Math.Ceiling(pageCount);
+
+            ClothesProducts.CurrentPageIndex = currentPage;
+
+            return ClothesProducts;
         }
 
         public IActionResult Privacy()
