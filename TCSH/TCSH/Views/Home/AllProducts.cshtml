@@ -34,7 +34,7 @@
                                 
           else{
             foreach(var item in Model.Clothes){
-            <div class="col-lg-4">
+                    <div class="col-lg-4" data-aos="zoom-out">
                 <div class="item">
                     <div class="thumb">
                         <div class="hover-content">
@@ -42,19 +42,19 @@
                                          <li><a asp-action="Details" asp-route-id="@item.ClotheId"><i class="fa fa-eye"></i></a></li>
                               </ul>
                         </div>
-                          <img id="myImg2" src="~/ProductsImages/@item.ProductImageURLRsized" />
+                                <img id="myImg2" src="~/ProductsImages/@item.ProductImageURLRsized" style="width:370px;height: 390px;object-fit:cover;" />
                     
                             </div>
                     <div class="down-content">
                         <h4>@item.Title</h4>
                         <span>$@item.Price</span>
-                        <ul class="stars">
+                        @*<ul class="stars">
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
-                        </ul>
+                        </ul>*@
                     </div>
                 </div>
             </div>

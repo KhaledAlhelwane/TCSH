@@ -92,7 +92,7 @@ namespace TCSH.Controllers
 
         private PagingClotheViewModel GetClothes(int currentPage)
         {
-            int maxRows = 10;
+            int maxRows = 9;
             PagingClotheViewModel ClothesProducts = new PagingClotheViewModel();
 
             ClothesProducts.Clothes = clothRepo.List().OrderByDescending(x => x.ClotheId).Skip((currentPage - 1) * maxRows).Take(maxRows).ToList();

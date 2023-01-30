@@ -8,10 +8,10 @@ namespace TCSH.ViewModel
     {
         public int ClotheId { get; set; }
         [Required]
-        [MaxLength(15,ErrorMessage ="please charecters numbers must be less or equal 15 charecters")]
+        [MaxLength(20,ErrorMessage ="please charecters numbers must be less or equal 15 charecters")]
         public string Market { get; set; }
         [Required]
-        [MaxLength(15, ErrorMessage = "please charecters numbers must be less or equal 15 charecters")]
+        [MaxLength(50, ErrorMessage = "please charecters numbers must be less or equal 15 charecters")]
         public string Title { get; set; }
         //public string Size { get; set; }
         [Required]

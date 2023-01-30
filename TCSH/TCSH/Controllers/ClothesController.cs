@@ -59,7 +59,7 @@ namespace TCSH.Controllers
 
         private PagingClotheViewModel GetClothes(int currentPage)
         {
-            int maxRows = 10;
+            int maxRows = 12;
             PagingClotheViewModel ClothesProducts = new PagingClotheViewModel();
 
             ClothesProducts.Clothes = clotheRepo.List().OrderByDescending(x => x.ClotheId).Skip((currentPage - 1) * maxRows).Take(maxRows).ToList();
@@ -140,6 +140,7 @@ namespace TCSH.Controllers
                     return View(collection);
                 }
                 string filenameIMa = string.Empty;
+                var CompressingResult = false;
                 if (collection.productImage != null)
                 {
                     var listindex = clotheRepo.List();
@@ -153,12 +154,12 @@ namespace TCSH.Controllers
                     }
 
                     string uploads = Path.Combine(hosting_.WebRootPath, "ProductsImages");
-                    string nospacename = filenameIMa.Trim();
-                    string fullpath = Path.Combine(uploads, nospacename);
+                   
+                    string fullpath = Path.Combine(uploads, filenameIMa);
                    
                     collection.productImage.CopyTo(new FileStream(fullpath, FileMode.Create));
               
-                    ImageResizing(uploads, nospacename);
+                    CompressingResult= ImageResizing(uploads, filenameIMa);
 
                 }
                 var user =userManager.GetUserAsync(User).Result;
@@ -176,8 +177,17 @@ namespace TCSH.Controllers
                     ApplicationUser = user,
                     AdditonalInformation = collection.AdditonalInformation,
                     ProductImageURL=filenameIMa,
-                    ProductImageURLRsized= "Resized"+filenameIMa
+                    
+                    //ProductImageURLRsized= "Resized"+filenameIMa
                 };
+                if (CompressingResult)
+                {
+                    ClothProduct.ProductImageURLRsized = "Resized" + filenameIMa;
+                }
+                else
+                {
+                    ClothProduct.ProductImageURLRsized = filenameIMa;
+                }
                 clotheRepo.Add(ClothProduct);
                 return RedirectToAction(nameof(Index));
             }
@@ -243,6 +253,7 @@ namespace TCSH.Controllers
                 UpdateOpject.TypeOfClotheId = collection.TypeId;
                 UpdateOpject.AgeTypeId = collection.AgeId;
                  string filenameIMa;
+                var CompressingResult=false;
                 if (collection.productImage != null)
                 {
                     System.GC.Collect();
@@ -261,9 +272,15 @@ namespace TCSH.Controllers
                         //save new image
                         UpdateOpject.ProductImageURL = filenameIMa;
                         collection.productImage.CopyTo(new FileStream(fullpath, FileMode.Create));
-                        ImageResizing(uploads, filenameIMa);
-                        UpdateOpject.ProductImageURLRsized = "Resized" + filenameIMa;
-
+                        CompressingResult = ImageResizing(uploads, filenameIMa);
+                        if (CompressingResult)
+                        {
+                            UpdateOpject.ProductImageURLRsized = "Resized" + filenameIMa;
+                        }
+                        else
+                        {
+                            UpdateOpject.ProductImageURLRsized =filenameIMa;
+                        }
                     }
                     clotheRepo.Update(UpdateOpject);
 
@@ -287,25 +304,35 @@ namespace TCSH.Controllers
     
         }
 
-        private void ImageResizing(string path,string filename)
-        {var ImageUrl = Path.Combine(path, filename);
+        //compressing and resizing
+        private bool ImageResizing(string path,string filename)
+        {
+            var ImageUrl = Path.Combine(path, filename);
             using (var image = new MagickImage(ImageUrl))
             {
                 try
                 {
-                    var size = new MagickGeometry(1000, 1000);
-                    //// This will resize the image to a fixed size without maintaining the aspect ratio.
-                    // Normally an image will be resized to fit inside the specified size.
-                    size.IgnoreAspectRatio = false;
+                    if (image.BaseWidth >= 1000 || image.BaseHeight >= 1000)
+                    {
+                        var size = new MagickGeometry(1000, 1000);
+                        //// This will resize the image to a fixed size without maintaining the aspect ratio.
+                        // Normally an image will be resized to fit inside the specified size.
+                        size.IgnoreAspectRatio = false;
 
 
-                    image.Resize(size);
-                    image.Quality = 75;
-                    //   Save the result
-                    image.Write(path+"\\Resized"+filename);
+                        image.Resize(size);
+                        image.Quality = 75;
+                        //   Save the result
+                        image.Write(path + "\\Resized" + filename);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }catch(Exception e)
                 {
-                   
+                    return false;
                 }
                 }
 

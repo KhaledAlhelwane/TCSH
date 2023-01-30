@@ -71,12 +71,12 @@
               <div class="row ">
     
     <div class="col-md-6">
-                 <label asp-for="AgeTypeList" class="control-label"></label>
+                <label asp-for="AgeTypeList" class="control-label">Age Type</label>
             <select asp-for="AgeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.AgeTypeList,"AgeTypeId","Type_Title"))"><option>Please Select a choice</option></select>
                 <span asp-validation-for="AgeId" class="text-danger"></span>
         </div> <div class="col-md-6">
 
-                 <label asp-for="TypeOfClotheLiat" class="control-label"></label>
+                 <label asp-for="TypeOfClotheLiat" class="control-label">Type Of Clothe</label>
                 <select asp-for="TypeId" class="form-select" aria-label="Default select example" asp-items="@(new SelectList(Model.TypeOfClotheLiat,"TypeOfClotheId","TypeOfTitle"))"><option>Please Select a choice</option></select>
                 <span asp-validation-for="TypeId" class="text-danger"></span>
        </div>
@@ -97,20 +97,20 @@
             </div>*@
            <div class="col-md-4">
             <div class="form-group">
-                <label asp-for="CareInstruction" class="control-label"></label>
+                <label asp-for="CareInstruction" class="control-label">Care Instruction</label>
                 <input asp-for="CareInstruction" class="form-control" />
                 <span asp-validation-for="CareInstruction" class="text-danger"></span>
             </div>
             </div>
                 <div class="col-md-4">
         <div class="form-group">
-                <label asp-for="MatrialComposition" class="control-label"></label>
+                <label asp-for="MatrialComposition" class="control-label">Matrial Composition</label>
                 <input asp-for="MatrialComposition" class="form-control" />
                 <span asp-validation-for="MatrialComposition" class="text-danger"></span>
             </div>
         </div>  <div class="col-md-4">
             <div class="form-group">
-                <label asp-for="AdditonalInformation" class="control-label"></label>
+                <label asp-for="AdditonalInformation" class="control-label">Additonal Information</label>
                 <input asp-for="AdditonalInformation" class="form-control" />
                 <span asp-validation-for="AdditonalInformation" class="text-danger"></span>
             </div>

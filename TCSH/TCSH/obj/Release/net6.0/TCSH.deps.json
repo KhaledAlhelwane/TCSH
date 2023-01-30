@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "TCSH/1.0.0": {
         "dependencies": {
+          "Magick.NET-Q16-AnyCPU": "12.2.2",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.11",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.AspNetCore.Identity.UI": "6.0.13",
@@ -24,6 +25,67 @@
           "lib/netstandard2.0/Humanizer.dll": {
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
+          }
+        }
+      },
+      "Magick.NET-Q16-AnyCPU/12.2.2": {
+        "dependencies": {
+          "Magick.NET.Core": "12.2.2"
+        },
+        "runtime": {
+          "lib/netstandard21/Magick.NET-Q16-AnyCPU.dll": {
+            "assemblyVersion": "12.2.0.0",
+            "fileVersion": "12.2.2.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/Magick.Native-Q16-arm64.dll.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/Magick.Native-Q16-x64.dll.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/Magick.Native-Q16-x64.dll.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/Magick.Native-Q16-arm64.dll.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/Magick.Native-Q16-x64.dll.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/Magick.Native-Q16-arm64.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "7.1.0.54"
+          },
+          "runtimes/win-x64/native/Magick.Native-Q16-x64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "7.1.0.54"
+          },
+          "runtimes/win-x86/native/Magick.Native-Q16-x86.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "7.1.0.54"
+          }
+        }
+      },
+      "Magick.NET.Core/12.2.2": {
+        "runtime": {
+          "lib/netstandard21/Magick.NET.Core.dll": {
+            "assemblyVersion": "12.2.0.0",
+            "fileVersion": "12.2.2.0"
           }
         }
       },
@@ -2356,6 +2418,20 @@
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
+    },
+    "Magick.NET-Q16-AnyCPU/12.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qrWC27lDhw4y/I9OvnxyC3Qbu0oNLWT2saqSd1K+WWoINV5xjXZd+DHWJYC306U6eOtyVQtfkjNF01lVq+GwTQ==",
+      "path": "magick.net-q16-anycpu/12.2.2",
+      "hashPath": "magick.net-q16-anycpu.12.2.2.nupkg.sha512"
+    },
+    "Magick.NET.Core/12.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U4aPbh0BRlwSeP/5waebv8oVTrp66gRHxVj1o6dRpZk5kD5SPz4i8asdaClL5B2oqWNVNrGHD3Uc5Bz4Ao5G8g==",
+      "path": "magick.net.core/12.2.2",
+      "hashPath": "magick.net.core.12.2.2.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",
